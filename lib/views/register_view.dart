@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../viewmodels/auth_viewmodel.dart';
-
+import 'package:firebase_project/views/widgets/custom_text_form_field.dart';
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
 
@@ -10,55 +8,63 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  String? _errorMessage;
+  var emailcontroller=TextEditingController();
 
+  var passwordcontroller=TextEditingController();
+
+  var confirmpasswordcontroller=TextEditingController();
+  var namecontroller=TextEditingController();
+
+  final _formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Register")),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: "Email"),
-            ),
-            TextField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: "Password"),
-              obscureText: true,
-            ),
-            if (_errorMessage != null)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
-              ),
-            ElevatedButton(
-              onPressed: () async {
-                final authViewModel = Provider.of<AuthViewModel>(context, listen: false);
-                final message = await authViewModel.register(
-                  _emailController.text,
-                  _passwordController.text,
-                );
+      appBar: AppBar(
+        title: Text('Register screen'),
+      ),
 
-                if (message != null) {
-                  setState(() => _errorMessage = message);
-                } else {
-                  Navigator.pop(context);
-                }
-              },
-              child: const Text("Register"),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pushNamed(context, "/login"),
-              child: const Text("Already have an account? Login"),
-            ),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 600),
+        child: Form(
+          child: Column(
+            
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+             
+                 SizedBox(height: 30),
+              CustomTextFormField(controller: emailcontroller, hint: 'enter your email', iSscure: false,),
+              SizedBox(height: 30),
+              CustomTextFormField(controller: passwordcontroller, hint: 'enter your password',iSscure:true,),
+              SizedBox(height: 30),
+          
+            
+              
+          
+              ElevatedButton(onPressed: (){
+                Navigator.of(
+                  context).pushNamed('home');
+              }, child: Text('Register',style: TextStyle(fontSize: 20,color: Colors.black),),
+              ),
+          
+              SizedBox(height: 20,),
+          
+              
+              
+          
+          
+          
+          
+            ],
+          
+            
+          ),
         ),
       ),
+ 
+
+
+
+
     );
   }
 }

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "905034488721",
-    "project_id": "test-pcos",
-    "storage_bucket": "test-pcos.firebasestorage.app"
+    "project_number": "124128929881",
+    "project_id": "graduation-5017a",
+    "storage_bucket": "graduation-5017a.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:905034488721:android:4e54e3c6620052367a9830",
+        "mobilesdk_app_id": "1:124128929881:android:f53ac96426e7f3e348a948",
         "android_client_info": {
           "package_name": "com.example.firebase_project"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAKsLcf_W_HG0gNVksQiSc8kJsxMgikmlA"
+          "current_key": "AIzaSyADo0AantVYZj4Yd9JkP-imisxhHAg_bJM"
         }
       ],
       "services": {

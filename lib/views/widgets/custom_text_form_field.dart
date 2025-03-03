@@ -9,6 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   String hint;
   bool iSscure;
   
+  
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -17,7 +18,7 @@ class CustomTextFormField extends StatelessWidget {
                 
                 hintText: hint,
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(13)),
-                suffixIcon: Icon(Icons.check),
+              
                 
                 
               ),
